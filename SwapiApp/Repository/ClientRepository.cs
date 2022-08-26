@@ -43,8 +43,22 @@ namespace SwapiApp.Repository
 
         public async Task<Person> Update(Person person)
         {
-            var result = await _db.People.FirstOrDefaultAsync(p => p.Id != person.Id);
-            result = person;
+            //_db.Entry(person).State = EntityState.Modified;
+            var result = await _db.People.FirstOrDefaultAsync(p => p.Id == person.Id);
+            result.Name = person.Name;
+            result.Mass = person.Mass;
+            result.Edited = person.Edited;
+            result.BirthYear = person.BirthYear;
+            result.Url = person.Url;
+            result.EyeColor = person.EyeColor;
+            result.Height = person.Height;
+            result.HomeworId = person.HomeworId;
+            result.HairColor = person.HairColor;
+            result.Vehicles = person.Vehicles;
+            result.Created = person.Created;
+            result.Films = person.Films;
+            result.Gender = person.Gender;
+            result.SkinColor = person.SkinColor;
             await _db.SaveChangesAsync();
             return result;
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SwapiApp.Test
 {
-    internal class DatabaseFixture : IDisposable
+    public class DatabaseFixture : IDisposable
     {
         public DatabaseFixture()
         {
